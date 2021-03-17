@@ -1,0 +1,1 @@
+celery -A task worker --loglevel=INFO -c 2 
