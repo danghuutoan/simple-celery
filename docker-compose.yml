@@ -9,14 +9,15 @@ services:
     image: mher/flower:0.9.5
     ports:
       - "5555:5555"
-    environment: 
+    environment:
       - FLOWER_BASIC_AUTH=admin:ninja-password
     command:
       - "--broker=amqp://guest@queue:5672//"
-  
+
   worker:
     build: ./
-    volumes: 
+    volumes:
       - ./:/usr/src/app
-    environment: 
-      - QUEUE_DOMAIN=queue
+    # environment:
+    #   - QUEUE_DOMAIN=192.168.1.2:5672
+    command: celery -A task worker --loglevel=INFO -c 1

@@ -1,1 +1,1 @@
-celery -A task worker --loglevel=INFO -c 2 
+celery -A task worker --loglevel=DEBUG -c 2 

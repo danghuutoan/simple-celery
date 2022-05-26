@@ -1,1 +1,1 @@
-celery
+celery==4.4.6
